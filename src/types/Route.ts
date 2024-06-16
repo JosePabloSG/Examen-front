@@ -1,5 +1,5 @@
 interface RouteProps {
     id: number;
-    Ruta: string
+    nombre: string
 }
 export default RouteProps

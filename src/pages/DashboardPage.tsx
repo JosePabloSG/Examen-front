@@ -34,7 +34,7 @@ export default function DashboardPage () {
                 <option> Selecione lugar de salida </option>
                 {Routes && Routes.data && Routes.data.map((route: RouteProps) => (
                   <option key={route.id} value={route.id}>
-                    {route.Ruta}
+                    {route.nombre}
                   </option>
                 ))}
               </select>
@@ -57,7 +57,7 @@ export default function DashboardPage () {
                 {Routes && Routes.data && Routes.data.map((route: RouteProps) => (
 
                   <option key={route.id} value={route.id}>
-                    {route.Ruta}
+                    {route.nombre}
                   </option>
                 ))}
               </select>

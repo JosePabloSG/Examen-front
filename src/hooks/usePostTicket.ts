@@ -13,7 +13,7 @@ export default function usePostTicket () {
       Lugar_salida: data.placeStart,
       Lugar_llegada: data.placeEnd,
       Fecha: data.date,
-      Hora: data.time
+      Hora: data.time + ':00'
     }
     mutation.mutate(ticketData)
     toast.success('Tiquete creado exitosamente')

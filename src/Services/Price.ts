@@ -1,4 +1,4 @@
 import axios from 'axios'
-export async function getPrice () {
-  return await axios.get('https://666e19bf7a3738f7cace015a.mockapi.io/precio')
+export async function getPrice (placeStart: number, placeEnd: number) {
+  return await axios.get(`https://localhost:7050/ObtenerPrecio?salida=${placeStart}&destino=${placeEnd}`)
 }

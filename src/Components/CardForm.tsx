@@ -3,9 +3,11 @@ import { Input } from './ui/input'
 import useGetAllRoutes from '../hooks/useGetAllRoutes'
 import usePostTicket from '@/hooks/usePostTicket'
 import RouteProps from '@/types/Route'
+import useGetPrice from '@/hooks/useGetPrice'
 
 export default function CardForm () {
   const { data: Routes } = useGetAllRoutes()
+  const { price, handlePlaceEndChange, handlePlaceStartChange } = useGetPrice()
   const { OnSubmit, register } = usePostTicket()
 
   return (
@@ -23,13 +25,14 @@ export default function CardForm () {
             <select
               id='placeStart'
               {...register('placeStart')}
+              onChange={handlePlaceStartChange}
               required
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-900 appearance-none'
             >
               <option> Selecione lugar de salida </option>
               {Routes && Routes.data && Routes.data.map((route: RouteProps) => (
                 <option key={route.id} value={route.id}>
-                  {route.Ruta}
+                  {route.nombre}
                 </option>
               ))}
             </select>
@@ -44,14 +47,14 @@ export default function CardForm () {
             <select
               id='placeEnd'
               {...register('placeEnd')}
+              onChange={handlePlaceEndChange}
               required
               className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-900 appearance-none'
             >
               <option> Selecione lugar de llegada </option>
               {Routes && Routes.data && Routes.data.map((route: RouteProps) => (
-
                 <option key={route.id} value={route.id}>
-                  {route.Ruta}
+                  {route.nombre}
                 </option>
               ))}
             </select>
@@ -84,7 +87,7 @@ export default function CardForm () {
                 Precio del tiquete
               </h1>
               <p>
-                ₡
+                ₡ {price}
               </p>
             </div>
             <section className='flex ml-10 mt-2 justify-end'>
