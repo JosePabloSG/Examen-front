@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import HomePage from './pages/HomePage'
 import DashboardPage from './pages/DashboardPage'
+import DashboardProvider from './context/DasboardProvider'
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,14 @@ const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Toaster
-        position='top-center'
-        reverseOrder={false}
-      />
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <DashboardProvider>
+      <QueryClientProvider client={queryClient}>
+        <Toaster
+          position='top-center'
+          reverseOrder={false}
+        />
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </DashboardProvider>
   </React.StrictMode>
 )

@@ -70,16 +70,6 @@ export default function CardForm () {
                 id='date' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-900' type='date'
               />
             </div>
-            <div className='space-y-2'>
-              <Label htmlFor='time' className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>
-                Selecione la hora
-              </Label>
-              <Input
-                data-cy='time'
-                {...register('time')}
-                id='time' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-900' type='time'
-              />
-            </div>
           </div>
           <div className='flex'>
             <div>
