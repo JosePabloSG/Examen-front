@@ -23,6 +23,7 @@ export default function usePostTicket () {
       Fecha: data.date
     }
     try {
+      console.log(ticketData)
       await mutation.mutateAsync(ticketData)
       toast.success('Tiquete creado exitosamente')
     } catch (error) {

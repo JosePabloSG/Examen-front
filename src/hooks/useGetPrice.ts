@@ -18,9 +18,11 @@ export default function useGetPrice () {
 
   const { data, error, isLoading, isError } = useQuery(['price', placeStart, placeEnd], async () => {
     if (placeStart !== null && placeEnd !== null) {
+      console.log(placeStart, placeEnd)
       try {
         const response = await getPrice(placeStart, placeEnd)
         setPrice(response.data.precio)
+
         toast.success('Precio obtenido')
         return response
       } catch (error) {
